@@ -473,7 +473,7 @@ COMMON-промокоды имеют фиксированное значение
 Для просмотра актуальных результатов тестирования необходимо открыть первый запуск.
 
 <p align="center">
-  <img src="./media/ci-faq-tests-1.png" width="400px">
+  <img src="./media/ci-faq-tests-1.png" width="600px">
 </p>
 
 Далее будет доступна информация по шагам пайплайна тестирования.
@@ -481,14 +481,14 @@ COMMON-промокоды имеют фиксированное значение
 - Перейдите к `Run tests` для просмотра результатов тестирования. 
 
 <p align="center">
-  <img src="./media/ci-faq-tests-2.png" width="400px">
+  <img src="./media/ci-faq-tests-2.png" width="600px">
 </p>
 
 Если вы перешли к `Run tests`, вы можете раскрыть вкладку `Run tests` 
 для просмотра сводной информации по запуску тестов.
 
 <p align="center">
-  <img src="./media/ci-faq-tests-3.png" width="400px">
+  <img src="./media/ci-faq-tests-3.png" width="600px">
 </p>
 
 Раскройте `Running testgroup '01/ping'` (или другая группа тестов) для просмотра подробного лога тестирования.

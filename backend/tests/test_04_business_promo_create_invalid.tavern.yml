@@ -77,9 +77,6 @@ stages:
           - uniq3
     response:
       status_code: 400
-      save:
-        json:
-          company1_promo3_id: id
   
   - name: "Создание некорректного промокода (некорректная страна и маленькое описание)"
     request:
