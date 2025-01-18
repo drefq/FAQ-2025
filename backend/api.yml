@@ -858,9 +858,6 @@ components:
           format: date
           description: Дата окончания действия промокода (включительно). Влияет на параметр active.
 
-      required:
-        - target
-
     PromoCreate:
       properties:
         mode:
@@ -899,6 +896,7 @@ components:
         - description
         - mode
         - max_count
+        - target
 
     PromoForUser:
       type: object
