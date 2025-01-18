@@ -948,7 +948,6 @@ components:
         - company_id
         - company_name
         - description
-        - image_url
         - active
         - is_activated_by_user
         - like_count
@@ -999,7 +998,7 @@ components:
       type: object
       description: "Статистика промокода"
       properties:
-        activate_count:
+        activations_count:
           type: integer
           readOnly: true
           description: "Общее количество активаций"
@@ -1011,9 +1010,14 @@ components:
             properties:
               country:
                 $ref: "#/components/schemas/Country"
-              used_count:
+              activations_count:
                 type: integer
                 description: Количество активаций в этой стране.
+            required:
+              - country
+              - activations_count
+      required:
+        - activations_count
 
     UserTargetSettings:
       type: object
