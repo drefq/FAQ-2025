@@ -588,7 +588,7 @@ paths:
         "401":
           $ref: "#/components/responses/NoAuth401"
         "403":
-          $ref: "#/components/responses/NoAccessToPromoUser"
+          $ref: "#/components/responses/NoAccessToComment"
         "404":
           $ref: "#/components/responses/PromoOrCommentNotFound"
 
@@ -618,7 +618,7 @@ paths:
         "401":
           $ref: "#/components/responses/NoAuth401"
         "403":
-          $ref: "#/components/responses/NoAccessToPromoUser"
+          $ref: "#/components/responses/NoAccessToComment"
         "404":
           $ref: "#/components/responses/PromoOrCommentNotFound"
 
@@ -1242,8 +1242,8 @@ components:
               message:
                 type: string
                 example: "Промокод не принадлежит этой компании."
-    NoAccessToPromoUser:
-      description: Комментарий или промокод не принадлежит пользователю
+    NoAccessToComment:
+      description: Комментарий не принадлежит пользователю
       content:
         application/json:
           schema:
