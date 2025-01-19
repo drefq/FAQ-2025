@@ -470,7 +470,7 @@ paths:
         - B2C
       summary: Добавить комментарий к промокоду
       description: |
-        Добавляет комментарий к указанному промокоду.
+        Добавляет комментарий к указанному промокоду. Пользователь может оставить несколько комментариев к одному и тому же промокоду.
       parameters:
         - $ref: "#/components/parameters/AuthorizationHeader"
         - $ref: "#/components/parameters/Id"
@@ -1127,7 +1127,7 @@ components:
         date:
           type: string
           format: date-time
-          description: Дата и время создания комментария
+          description: Дата и время создания комментария. Часовой пояс может быть любым, необходимо отразить его в формате (Zhh:mm).
           example: 2025-01-02T15:04:05Z07:00
         author:
           type: object
