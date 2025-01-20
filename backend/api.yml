@@ -3,7 +3,7 @@ info:
   title: Promo Code API
   version: "1.0"
 servers:
-  - url: https://api.promocode.com/v1
+  - url: https://api.changeme.please/
 
 paths:
   /ping:
