@@ -229,7 +229,7 @@ paths:
         - B2B
       summary: Получить статистику по промокоду
       description: |
-        Возвращает статистику использования промокода по его ID.
+        Возвращает статистику использования промокода по его ID. Учитываются только те страны, откуда были активации.
 
         Массив со сводкой по странам должен быть отсортирован по коду региона, в лексикографическом порядке (от a к z). 
         Сравнивайте коды стран регистронезависимо. Например, приведите их к нижнему регистру.
@@ -1004,6 +1004,8 @@ components:
       properties:
         activations_count:
           type: integer
+          minimum: 0
+          example: 10
           readOnly: true
           description: "Общее количество активаций"
         countries:
@@ -1016,6 +1018,7 @@ components:
                 $ref: "#/components/schemas/Country"
               activations_count:
                 type: integer
+                minimum: 1
                 description: Количество активаций в этой стране.
             required:
               - country
