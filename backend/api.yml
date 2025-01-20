@@ -133,7 +133,7 @@ paths:
           in: query
           schema:
             type: string
-            description: Сортировать по дате начала/конца действия промокода. По умолчанию - сортируется в упорядке создания промокодов. Сортировка всегда выполняется по убыванию. Если у промокода не задано active_from - принимайте за -inf, если не задано active_until - принимайте за +inf.
+            description: Сортировать по дате начала/конца действия промокода. По умолчанию - сортируется в порядке создания промокодов. Сортировка всегда выполняется по убыванию. Если у промокода не задано active_from - принимайте за -inf, если не задано active_until - принимайте за +inf.
             enum:
               - active_from
               - active_until
@@ -852,7 +852,7 @@ components:
             - type: integer
               minimum: 1
               maximum: 1
-              description: При mode = UNIQUE данное поле всегда принимает значение 1.
+              description: При mode = UNIQUE данное поле должно всегда принимать значение 1.
 
         active_from:
           type: string
@@ -877,7 +877,7 @@ components:
           type: string
           minLength: 5
           maxLength: 30
-          description: Промокод для использования. Обязательный параметр, если mode = COMMON.
+          description: Промокод для использования. Обязательный параметр, если mode = COMMON (иначе должен отсутствовать).
           example: sale-10
 
         promo_unique:
@@ -888,7 +888,7 @@ components:
             type: string
             minLength: 3
             maxLength: 30
-          description: Список промокодов. Обязательный параметр, если mode = UNIQUE. Каждое значение может быть выдано пользователю только один раз.
+          description: Список промокодов. Обязательный параметр, если mode = UNIQUE (иначе должен отсутствовать). Каждое значение может быть выдано пользователю только один раз.
           example:
             [
               winter-sale-30-abc28f99qa,
