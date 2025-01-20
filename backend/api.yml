@@ -3,7 +3,7 @@ info:
   title: Promo Code API
   version: "1.0"
 servers:
-  - url: https://api.promocode.com/v1
+  - url: https://api.changeme.please/
 
 paths:
   /ping:
@@ -230,6 +230,9 @@ paths:
       summary: Получить статистику по промокоду
       description: |
         Возвращает статистику использования промокода по его ID.
+
+        Массив со сводкой по странам должен быть отсортирован по коду региона, в лексикографическом порядке (от a к z). 
+        Сравнивайте коды стран регистронезависимо. Например, приведите их к нижнему регистру.
       parameters:
         - $ref: "#/components/parameters/AuthorizationHeader"
         - $ref: "#/components/parameters/Id"
@@ -1127,7 +1130,7 @@ components:
         date:
           type: string
           format: date-time
-          description: Дата и время создания комментария. Часовой пояс может быть любым, необходимо отразить его в формате (Zhh:mm).
+          description: Дата и время создания комментария. Часовой пояс может быть любым, необходимо отразить его в формате RFC3339 (с суффиксом Zhh:mm).
           example: 2025-01-02T15:04:05Z07:00
         author:
           type: object
