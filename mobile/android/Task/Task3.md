@@ -8,7 +8,7 @@
 
 ### Макет
 
-![макет](../images/design/banner.svg)
+[Ссылка на макет](https://www.figma.com/design/M0ekYZvZTfk2bVRLjEtGLf/PROD-%E2%80%93-mobile-%E2%80%93-2025?node-id=1-36810&t=DVqWIKOgFAEaAa4D-4)
 
 #### Маленький баннер
 

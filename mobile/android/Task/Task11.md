@@ -8,7 +8,7 @@
 
 ### Макет
 
-![макет](../images/design/payment.svg)
+[Ссылка на макет](https://www.figma.com/design/M0ekYZvZTfk2bVRLjEtGLf/PROD-%E2%80%93-mobile-%E2%80%93-2025?node-id=1-30809&t=bEgQYPcZAqFDFqiQ-4)
 
 #### Заголовок экрана
 * Размеры: по ширине контента, по высоте контента
@@ -73,7 +73,6 @@
 
 ### Эталон
 
-TODO
 ![paymentScreen.png](images/reference/paymentScreen.png)
 
 ## Ограничения
