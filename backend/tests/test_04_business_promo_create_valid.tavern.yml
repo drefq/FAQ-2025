@@ -1,57 +1,26 @@
 test_name: Корректное создание промокода
 
+# Подключение файлов из директории components для переиспользования в тестах
+includes:
+  - !include components/basic_auth.yml
+  - !include components/basic_promo.yml
+
 stages:
-  - name: "Регистрация компании [1]"
-    id: 04_reg1
-    request:
-      url: "{BASE_URL}/business/auth/sign-up"
-      method: POST
-      json:
-        name: "Рекламное агенство Малинки-Вечеринки"
-        email: raspberryprod@mail.com
-        password: SuperStrongPassword2000!
-    response:
-      status_code: 200
+  - type: ref
+    id: basic_auth_reg1
+    # Переиспользование шага из файла components/basic_auth.yml
 
-  - name: "Аутентификация [1]"
-    id: 04_auth1
-    request:
-      url: "{BASE_URL}/business/auth/sign-in"
-      method: POST
-      json:
-        email: raspberryprod@mail.com
-        password: SuperStrongPassword2000!
-    response:
-      status_code: 200
-      save:
-        json:
-          company1_token: token
+  - type: ref
+    id: basic_auth_auth1
+    # Переиспользование шага из файла components/basic_auth.yml
 
-  - name: "Регистрация компании [2]"
-    id: 04_reg2
-    request:
-      url: "{BASE_URL}/business/auth/sign-up"
-      method: POST
-      json:
-        name: "Рекламное агенство Вишенки-Вечеринки"
-        email: cherryprod@mail.com
-        password: HARDpassword@10101010!
-    response:
-      status_code: 200
+  - type: ref
+    id: basic_auth_reg2
+    # Переиспользование шага из файла components/basic_auth.yml
 
-  - name: "Аутентификация [2]"
-    id: 04_auth2
-    request:
-      url: "{BASE_URL}/business/auth/sign-in"
-      method: POST
-      json:
-        email: cherryprod@mail.com
-        password: HARDpassword@10101010!
-    response:
-      status_code: 200
-      save:
-        json:
-          company2_token: token
+  - type: ref
+    id: basic_auth_auth2
+    # Переиспользование шага из файла components/basic_auth.yml
 
   - name: "Успешное создание промокода [1]"
     id: 04_create1
@@ -60,14 +29,8 @@ stages:
       method: POST
       headers:
         Authorization: "Bearer {company1_token}"
-      json:
-        description: "Повышенный кэшбек 10% для новых клиентов банка!"
-        image_url: "https://cdn2.thecatapi.com/images/3lo.jpg"
-        target: {}
-        max_count: 10
-        active_from: "2025-01-10"
-        mode: "COMMON"
-        promo_common: "sale-10"
+      # Чтобы посмотреть на структуру запроса, смотрите файлы с соответствующим названием в директории components/json
+      json: !include components/json/promo1.json
     response:
       status_code: 201
       save:
@@ -81,16 +44,8 @@ stages:
       method: POST
       headers:
         Authorization: "Bearer {company1_token}"
-      json:
-        description: "Повышенный кэшбек 40% для новых клиентов банка!"
-        image_url: "https://cdn2.thecatapi.com/images/3lo.jpg"
-        target:
-          age_from: 15
-          country: fr
-        max_count: 100
-        active_from: "2028-12-20"
-        mode: "COMMON"
-        promo_common: "sale-40"
+      # Чтобы посмотреть на структуру запроса, смотрите файлы с соответствующим названием в директории components/json
+      json: !include components/json/promo2.json
     response:
       status_code: 201
       save:
@@ -104,20 +59,8 @@ stages:
       method: POST
       headers:
         Authorization: "Bearer {company1_token}"
-      json:
-        description: "Подарочная маска для сна при оформлении кредита на машину"
-        target:
-          age_from: 28
-          age_until: 50
-          country: ru
-        max_count: 1
-        active_from: "2025-01-01"
-        active_until: "2028-12-30"
-        mode: "UNIQUE"
-        promo_unique:
-          - uniq1
-          - uniq2
-          - uniq3
+      # Чтобы посмотреть на структуру запроса, смотрите файлы с соответствующим названием в директории components/json
+      json: !include components/json/promo3.json
     response:
       status_code: 201
       save:
@@ -131,18 +74,8 @@ stages:
       method: POST
       headers:
         Authorization: "Bearer {company2_token}"
-      json:
-        description: "Подарочная маска для сна при оформлении кредита на машину"
-        target:
-          age_from: 28
-          age_until: 50
-          country: us
-        max_count: 1
-        active_until: "2025-01-10"
-        mode: "UNIQUE"
-        promo_unique:
-          - only_youuuu
-          - not_only_you
+      # Чтобы посмотреть на структуру запроса, смотрите файлы с соответствующим названием в директории components/json
+      json: !include components/json/promo4.json
     response:
       status_code: 201
       save:

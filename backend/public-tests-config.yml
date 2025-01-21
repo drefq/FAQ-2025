@@ -52,3 +52,15 @@ testcases:
         type: tavern
         tavern:
           filepath: test_04_business_promo_create_invalid.tavern.yml
+  - name: "/business/promo/list"
+    enabled: true
+    steps:
+      - name: Успешное создание промокодов
+        type: tavern
+        tavern:
+          filepath: test_04_business_promo_create_valid.tavern.yml
+      - name: Получение списка промокодов
+        score: 0.08
+        type: tavern
+        tavern:
+          filepath: test_05_business_promo_list.tavern.yml
