@@ -20,12 +20,12 @@ testcases:
     enabled: true
     steps:
       - name: Успешная регистрация
-        score: 0.03
+        score: 0.02
         type: tavern
         tavern:
           filepath: test_02_business_signup.tavern.yml
       - name: Валидация регистрации с некорректным паролем
-        score: 0.03
+        score: 0.01
         type: tavern
         tavern:
           filepath: test_02_business_signup_invalid_password.tavern.yml
@@ -33,7 +33,7 @@ testcases:
     enabled: true
     steps:
       - name: Успешная аутентификация 
-        score: 0.03
+        score: 0.04
         type: tavern
         tavern:
           filepath: test_03_business_signin.tavern.yml
@@ -52,7 +52,7 @@ testcases:
         type: tavern
         tavern:
           filepath: test_04_business_promo_create_invalid.tavern.yml
-  - name: "/business/promo/list"
+  - name: "05/business/promo/list"
     enabled: true
     steps:
       - name: Успешное создание промокодов
@@ -64,3 +64,16 @@ testcases:
         type: tavern
         tavern:
           filepath: test_05_business_promo_list.tavern.yml
+  - name: "05/business/promo/{id}"
+    enabled: true
+    steps:
+      - name: Корректное редактирование и получение промокода по ID
+        score: 0.04
+        type: tavern
+        tavern:
+          filepath: test_04_business_promo_create_valid.tavern.yml
+      - name: Редактирование промокода с некорректными параметрами и логикой
+        score: 0.05
+        type: tavern
+        tavern:
+          filepath: test_06_business_promo_id_invalid.tavern.yml
