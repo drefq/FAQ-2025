@@ -24,6 +24,9 @@ stages:
       status_code: 200
       json:
       # Проверяем, что вернулись все промокоды компании, отсортированные в порядке убывания даты создания.
+      # В данном тесте используется нестрогая валидация полей ответа. 
+      # Будут валидироваться только те поля, которые указаны в .json файле
+      # При этом сервер должен возвращать все обязательные поля, упомянутые в спецификации (promo_id, company_id и т.д.).
         - !include components/json/promo3.json
         - !include components/json/promo2.json
         - !include components/json/promo1.json
@@ -41,6 +44,9 @@ stages:
     response:
       status_code: 200
       json:
+      # В данном тесте используется нестрогая валидация полей ответа. 
+      # Будут валидироваться только те поля, которые указаны в .json файле
+      # При этом сервер должен возвращать все обязательные поля, упомянутые в спецификации (promo_id, company_id и т.д.).
         - !include components/json/promo2.json
         - !include components/json/promo1.json
       headers:
@@ -58,6 +64,9 @@ stages:
     response:
       status_code: 200
       json:
+      # В данном тесте используется нестрогая валидация полей ответа. 
+      # Будут валидироваться только те поля, которые указаны в .json файле
+      # При этом сервер должен возвращать все обязательные поля, упомянутые в спецификации (promo_id, company_id и т.д.).
         - !include components/json/promo2.json
       headers:
         X-Total-Count: '3'
@@ -87,6 +96,9 @@ stages:
     response:
       status_code: 200
       json:
+      # В данном тесте используется нестрогая валидация полей ответа. 
+      # Будут валидироваться только те поля, которые указаны в .json файле
+      # При этом сервер должен возвращать все обязательные поля, упомянутые в спецификации (promo_id, company_id и т.д.).
         - !include components/json/promo3.json
         - !include components/json/promo1.json
       headers:
@@ -104,6 +116,9 @@ stages:
     response:
       status_code: 200
       json: 
+      # В данном тесте используется нестрогая валидация полей ответа. 
+      # Будут валидироваться только те поля, которые указаны в .json файле
+      # При этом сервер должен возвращать все обязательные поля, упомянутые в спецификации (promo_id, company_id и т.д.).
         - !include components/json/promo1.json
         - !include components/json/promo3.json
       headers:
