@@ -35,9 +35,6 @@ stages:
         password: SuperInvalidPassword2000!
     response:
       status_code: 401
-      save:
-        json: 
-          user1_token: token
 
   - name: "Аутентификация: успех"
     request:
