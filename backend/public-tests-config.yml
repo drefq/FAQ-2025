@@ -91,3 +91,11 @@ testcases:
         type: tavern
         tavern:
           filepath: test_07_user_signup_invalid.tavern.yml
+  - name: "08/user/auth/sign-in"
+    enabled: true
+    steps:
+      - name: Корректная аутентификация пользователя
+        score: 0.03
+        type: tavern
+        tavern:
+          filepath: test_08_user_signin.tavern.yml
