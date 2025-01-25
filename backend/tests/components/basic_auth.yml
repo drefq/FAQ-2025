@@ -24,6 +24,9 @@ stages:
         password: "{company1.password:s}"
     response:
       status_code: 200
+      save:
+        json:
+          company1_token: token
 
   - name: "Аутентификация [1]"
     id: basic_auth_auth1
@@ -50,6 +53,9 @@ stages:
         password: "{company2.password:s}"
     response:
       status_code: 200
+      save:
+        json:
+          company2_token: token
 
   - name: "Аутентификация [2]"
     id: basic_auth_auth2
